@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+
+<header class="main-header">
+  <div class="nav-left">
+    <img src="/images/applogo.png" alt="Logo" class="logo-img">
+  </div>
+<nav class="nav-right">
+    <a href="index_backup.html" class="active">Home</a>
+    <button id="notificationBtn" aria-expanded="false" aria-haspopup="true" aria-controls="notificationMenu">
+      Notifications <span id="notificationCount" style="display:none;" class="notification-badge"></span>
+    </button>
+    <ul id="notificationMenu" style="display:none; position:absolute; background:#fff; border:1px solid #ccc; box-shadow:0 2px 8px rgba(0,0,0,0.15); padding:10px; max-height:400px; overflow-y:auto; width:300px; z-index:1000;">
+      <li id="notificationList">No new notifications</li>
+    </ul>
+    <a href="bookings.html">Service Status</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</header>
+
+
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>HandyMany</h1>
+    <h2>Your Go-To App for Trusted Services</h2>
+    <p>Find, book, and connect with verified service providers anytime, anywhere.</p>
+    <a href="#providersTable" class="cta-btn">Browse Providers</a>
+  </div>
+</section>
+
+
+<main>
+  <h2>Welcome to the Service Providers Directory</h2>
+  <p>Browse and Book Providers</p>
+
+
+  <div class="location-input-wrapper">
+    <input type="text" id="userLocation" placeholder="Enter your location (e.g., Cheras)" />
+    <button id="locateBtn">Find Nearby Providers</button>
+  </div>
+
+
+  <div class="filter-section">
+    <label for="searchInput">Search:</label>
+    <input type="text" id="searchInput" placeholder="Name or Specialization..." />
+
+
+    <label for="stateSelect">Filter by State:</label>
+    <select id="stateSelect">
+      <option value="">-- All States --</option>
+    </select>
+
+
+    <label for="priceSort">Sort by Price:</label>
+    <select id="priceSort">
+      <option value="">-- Select --</option>
+      <option value="lowToHigh">Low to High</option>
+      <option value="highToLow">High to Low</option>
+    </select>
+
+
+
+    <label for="categoryfilter">Filter by Category:</label>
+    <div class="checkbox-filters">
+    <label><input type="checkbox" id="studentCheckbox" /> Student</label>
+    <label><input type="checkbox" id="verifiedCheckbox" /> Verified</label>
+    <label><input type="checkbox" id="femaleOnlyCheckbox" /> Women Only</label>
+    </div>
+  </div>
+
+
+  <table id="providersTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Specializations</th>
+        <th>Gender</th>
+        <th>Price/Hour</th>
+        <th>Location</th>
+        <th>Contact</th>
+        <th>Distance</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+
+  <div id="message"></div>
+</main>
+
+
+<section class="how-it-works">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>1. Search</h3>
+      <p>Use filters or keywords to find suitable service providers.</p>
+    </div>
+    <div class="step">
+      <h3>2. Book</h3>
+      <p>Select available dates and book a time slot instantly.</p>
+    </div>
+    <div class="step">
+      <h3>3. Get Help</h3>
+      <p>Your chosen provider comes to your location—job done!</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="trust-section">
+  <h2>Trusted by Many</h2>
+  <p>Used by multiple households and businesses.</p>
+  <div class="testimonials">
+    <blockquote>"So easy to find reliable help. Game changer!" – Sara L.</blockquote>
+    <blockquote>"Booked in 2 minutes. Job done the same day!" – Rizal K.</blockquote>
+  </div>
+</section>
+
+
+<footer class="footer">
+  2025 HandyMany by LiliaTECH.<br><br>
+  Location data from
+  <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a><br>
+  Photo by
+  <a href="https://unsplash.com/@louishansel?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Louis Hansel</a>
+  on
+  <a href="https://unsplash.com/photos/assorted-type-carpentry-tools-on-brown-surface-Rf9eElW3Qxo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+</footer>
+
+
+<script src="index.js" defer></script>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Service Booking System</title>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="calendar.css" />
+</head>
+<body>
+    <header>
+        <div id="header-container" style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div id="back-button-container">
+                <button id="backBtn" class="back-btn" onclick="window.history.back()">← Back to Home</button>
+            </div>
+            <h1 style="margin-left: 20px;">Home Service Booking System</h1>
+        </div>
+        <p>Choose your preferred date, time, and book a helper easily.</p>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <section class="calendar-section" aria-label="Select service date">
+                <div class="calendar-header">
+                    <button id="prevMonth" aria-label="Previous month"><</button>
+                    <div id="monthYear"></div>
+                    <button id="nextMonth" aria-label="Next month">></button>
+                </div>
+                <div class="calendar-weekdays" aria-hidden="true">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-days" role="grid" id="calendarDays"></div>
+                <div id="selectedDateDisplay" style="margin-top:1rem; font-weight:600;"></div>
+
+
+                <div id="timeSlotsSection" style="margin-top:1.5rem; display:none;">
+                    <h2>Select a time slot</h2>
+                    <div class="time-slots" id="timeSlots" role="list" aria-label="Available time slots"></div>
+                    <div id="timeSlotLoading" style="font-size:0.9rem; color:#666; margin-top:0.5rem; display:none;">Loading availability...</div>
+                    <div id="timeSlotError" class="error" style="display:none;"></div>
+                </div>
+            </section>
+
+
+            <section class="booking-section" aria-label="Booking form">
+                <h2>Booking Details</h2>
+                <form id="bookingForm" novalidate>
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your full name" />
+
+
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required placeholder="your@email.com" />
+
+
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="+1 555 123 4567" pattern="\+?\d{7,15}" title="Enter valid phone number" />
+
+
+                    <label for="address">Service Address *</label>
+                    <textarea id="address" name="address" autocomplete="street-address" required placeholder="Address where service is needed"></textarea>
+
+
+                    <label for="serviceType">Type of Service *</label>
+                    <select id="serviceType" name="serviceType" required>
+                        <option value="" disabled selected>Select service type</option>
+                    </select>
+
+
+                    <label for="notes">Additional Notes (optional)</label>
+                    <textarea id="notes" name="notes" placeholder="Any special instructions or info"></textarea>
+
+
+                    <label for="selectedDate">Selected Date *</label>
+                    <input type="text" id="selectedDate" name="selectedDate" readonly required placeholder="Please select a date on calendar" />
+
+
+                    <label for="selectedTime">Selected Time Slot *</label>
+                    <input type="text" id="selectedTime" name="selectedTime" readonly required placeholder="Please select a time slot" />
+
+
+                    <button type="submit" class="submit-btn">Book Service</button>
+                </form>
+                <div id="confirmationMessage" class="confirmation" style="display:none;" role="alert"></div>
+                <div id="formError" class="error" style="display:none;" role="alert"></div>
+            </section>
+        </div>
+    </div>
+
+
+    <script src="calendar.js"></script>
+</body>
+</html>

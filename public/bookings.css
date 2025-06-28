@@ -1,0 +1,544 @@
+:root {
+  --main-bg: #f9f5fa;
+  --plum: #431837;
+  --plum-light: #b07fa8;
+  --text-main: #3c1431;
+  --white: #ffffff;
+  --accent: #8ba286;
+  --accent-light: #a67fb0;
+  --gray-light: #ccc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+  margin-top: 0;
+}
+
+/* ========== HEADER STYLES ========== */
+.main-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #431837; /* ensure consistent background */
+  color: white;
+  z-index: 1000;
+}
+
+.main-header a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+
+/* Highlight active page link */
+.main-header a.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* Right navigation */
+.nav-right {
+  display: flex;
+  gap: 30px;
+}
+
+
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+
+.nav-right a:hover {
+  color: var(--accent);
+}
+
+/* Active link: underlined and bold */
+.nav-right a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+
+.nav-right a.active {
+  font-weight: bold;
+  color: #ffe8f9;
+}
+
+/* Left side logo and app name */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.app-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.logo-img {
+  height: 36px;
+  width: 36px;
+  padding-top: 2px; /* helps align with text */
+}
+
+#notificationBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  margin: 0 12px;
+}
+
+#notificationBtn:hover {
+  color: var(--accent);
+}
+
+.notification-badge {
+  background-color: var(--plum-light);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  font-weight: bold;
+}
+
+#notificationMenu {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  width: 300px;
+  z-index: 1000;
+  right: 40px;
+  top: 70px;
+  color: black;
+}
+
+.notification-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notification-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.notification-list li:hover {
+  background-color: #f5f5f5;
+}
+
+.notification-list li.unread {
+  font-weight: bold;
+}
+
+/* ========== MAIN CONTENT STYLES ========== */
+main {
+  flex-grow: 1;
+  max-width: 1100px;
+  width: 95%;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-top: 100px;
+}
+
+
+h1, h2 {
+  margin-bottom: 20px;
+  color: var(--plum);
+}
+
+/* ========== BOOKING CARD STYLES ========== */
+#bookingsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.booking-card {
+  background-color: white;
+  border: 1px solid #e0d4e8;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(67, 24, 55, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(67, 24, 55, 0.15);
+}
+
+.booking-card h2 {
+  margin-top: 0;
+  color: var(--plum);
+  font-size: 1.4rem;
+}
+
+.booking-card p {
+  margin: 8px 0;
+  color: var(--text-main);
+}
+
+.booking-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-in-progress {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* ========== FOOTER STYLES ========== */
+.footer {
+  background-color: var(--plum);
+  color: #ccc;
+  text-align: center;
+  padding: 2rem 1rem;
+  line-height: 1.6;
+  border-top: 1px solid #444;
+}
+
+.footer a {
+  color: #a67fb0;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #d3b5e5;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 15px 20px;
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .nav-right {
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .main-header a {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+
+  #notificationMenu {
+    right: 20px;
+    width: 280px;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .booking-card {
+    padding: 15px;
+  }
+}
+
+/* Modal styles for booking detail popup */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 10% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(67, 24, 55, 0.3);
+  position: relative;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#bookingDetails p,
+#providerDetails p {
+  margin: 8px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+/* Style for provider details container */
+#providerDetails {
+  border: 1px solid var(--plum);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff4fb;
+  box-shadow: 0 2px 8px rgba(176, 127, 168, 0.3);
+  font-weight: 600;
+  color: var(--plum);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Pushes buttons to opposite ends */
+  margin-top: 20px;
+}
+
+#viewProfileBtn {
+  background-color: var(--plum);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+#viewProfileBtn:hover {
+  background-color: var(--plum-light);
+}
+
+#cancelBookingBtn {
+  background-color: #ef5b55;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+#cancelBookingBtn:hover {
+  background-color: #b0322e;
+}
+
+/* Style for the buttons container */
+.cancel-confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Style for the confirmation buttons */
+#confirmCancelBtn,
+#cancelCancelBtn {
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+#confirmCancelBtn {
+  background-color: #ef5b55;
+  color: white;
+}
+
+#confirmCancelBtn:hover {
+  background-color: #b0322e;
+}
+
+#cancelCancelBtn {
+  background-color: white;
+  color: var(--plum);
+  border: 1px solid var(--plum);
+}
+
+#cancelCancelBtn:hover {
+  background-color: #f4f4f4;
+}
+
+
+/* Notification styles copied from index.css */
+
+#notificationBtn {
+  background: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+#notificationBtn:hover {
+  color: var(--plum-light);
+}
+
+#notificationMenu {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  width: 300px;
+  z-index: 1000;
+  top: 80%;
+  right: 110px;
+  color: black;
+}
+
+.notification-badge {
+  background-color: var(--plum-light);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  position: absolute;
+  right: -24px;
+  top: 4px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#notificationList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+#notificationList li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: black;
+}
+
+#notificationList li:hover {
+  background-color: #f5f5f5;
+}
+
+#notificationList li.unread {
+  font-weight: bold;
+}

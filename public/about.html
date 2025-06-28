@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - HandyMany</title>
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body>
+
+
+<header class="main-header">
+  <!-- LEFT: Logo and App Name -->
+  <div class="nav-left">
+    <img src="/images/applogo.png" alt="Logo" class="logo-img">
+    <span class="app-name">HandyMany</span>
+  </div>
+
+
+  <!-- RIGHT: Navigation -->
+  <nav class="nav-right">
+    <a href="index_backup.html">Home</a>
+    <button id="notificationBtn" aria-expanded="false" aria-haspopup="true" aria-controls="notificationMenu">
+      Notifications <span id="notificationCount" style="display:none;" class="notification-badge"></span>
+    </button>
+    <ul id="notificationMenu" style="display:none; position:absolute; background:#fff; border:1px solid #ccc; box-shadow:0 2px 8px rgba(0,0,0,0.15); padding:10px; max-height:400px; overflow-y:auto; width:300px; z-index:1000;">
+      <li id="notificationList">No new notifications</li>
+    </ul>
+    <a href="bookings.html">Service Status</a>
+    <a href="about.html" class="active">About Us</a>
+  </nav>
+
+
+</header>
+
+
+<main>
+  <h2>About HandyMany</h2>
+  <p>
+    A dedicated platform for booking trusted handyman services, connecting users with skilled professionals for tasks such as plumbing,
+    electrical work, and general home repairs. By partnering with independent service providers, KPTM, and TVET students, the platform
+    ensures access to a wide pool of qualified talent.
+  </p>
+  <p>
+    This platform not only delivers efficient and convenient home solutions to users but also supports local partnerships by creating
+    accessible work opportunities for skilled individuals, contributing to community growth and professional development.
+  </p>
+
+
+  <section class="unique-features">
+  <h3>What Makes HandyMany Special?</h3>
+  <div class="features-grid">
+    <div class="feature-box">
+      <h4>Exclusive Institutional Partnership</h4>
+      <p>We collaborate with KPTM and TVET institutions, giving access to a certified, skilled talent pool that competitors cannot easily tap into.</p>
+    </div>
+    <div class="feature-box">
+      <h4>Student-Led Initiative</h4>
+      <p>We benefits from a student-led team that brings fresh perspectives, adaptability, and a strong drive for innovation, allowing the platform to evolve
+      quickly and respond to challenges with creative solutions.</p>
+    </div>
+    <div class="feature-box">
+      <h4>Social impact focus</h4>
+      <p>We create job opportunities for students builds community trust and brand loyalty.</p>
+    </div>
+    <div class="feature-box">
+      <h4>Verified Provider Trust</h4>
+      <p>We  ensure service reliability by featuring providers verified through trusted institutions like KPTM, creating a built-in layer of customer confidence.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="motto-section">
+  <blockquote>"FIX IT FAST, FIX IT RIGHT"</blockquote>
+  <p class="motto-subtext">A commitment to quick, professional, and reliable service you can count on.</p>
+</section>
+</main>
+
+
+<footer class="footer">
+  2025 HandyMany by LiliaTECH.<br><br>
+  Location data from
+  <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a><br>
+  Photo by
+  <a href="https://unsplash.com/@louishansel?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Louis Hansel</a>
+  on
+  <a href="https://unsplash.com/photos/assorted-type-carpentry-tools-on-brown-surface-Rf9eElW3Qxo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+</footer>
+
+<script src="notification.js"></script>
+<script src="about.js"></script>
+
+</body>
+</html>

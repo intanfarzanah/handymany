@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up - HandyMany</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 20px;">
+        <img src="/images/applogo.png" alt="HandyMany Logo" style="height: 40px; width: auto;" />
+        <span style="font-family: cursive; font-size: 1.5rem; font-weight: 700; color: var(--plum);">HandyMany</span>
+      </div>
+      <h2>Create Account 🛠️</h2>
+      <p class="subtitle">Join HandyMany today</p>
+
+
+      <form id="signupForm" class="form">
+        <input type="text" name="fullname" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+        <button type="submit">Sign Up</button>
+        <p class="bottom-text">Already have an account? <a href="/login.html">Log In</a></p>
+      </form>
+
+
+      <script>
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const fullname = form.fullname.value;
+          const email = form.email.value;
+          const password = form.password.value;
+          const confirmPassword = form.confirm_password.value;
+
+
+          try {
+            const res = await fetch('/api/users/signup', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ fullname, email, password, confirmPassword })
+            });
+
+
+            const data = await res.json();
+            if (!res.ok) {
+              alert(data.message || 'Signup failed');
+            } else {
+              alert('Signup successful! Please login.');
+              window.location.href = '/login.html';
+            }
+          } catch (err) {
+            console.error(err);
+            alert('Server error. Please try again later.');
+          }
+        });
+      </script>
+    </div>
+  </div>
+
+
+
+
+</body>
+</html>

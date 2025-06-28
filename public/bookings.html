@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Service Status - Your Bookings</title>
+  <link rel="stylesheet" href="bookings.css" />
+</head>
+<body>
+<header class="main-header">
+  <div class="nav-left">
+    <img src="/images/applogo.png" alt="Logo" class="logo-img">
+  </div>
+  <nav class="nav-right">
+    <a href="index_backup.html">Home</a>
+    <button id="notificationBtn" aria-expanded="false" aria-haspopup="true" aria-controls="notificationMenu">
+      Notifications <span id="notificationCount" style="display:none;" class="notification-badge"></span>
+    </button>
+    <ul id="notificationMenu" style="display:none; position:absolute; background:#fff; border:1px solid #ccc; box-shadow:0 2px 8px rgba(0,0,0,0.15); padding:10px; max-height:400px; overflow-y:auto; width:300px; z-index:1000;">
+      <li id="notificationList">No new notifications</li>
+    </ul>
+    <a href="bookings.html" class="active">Service Status</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</header>
+
+  <main>
+    <h1>Your Service Bookings</h1>
+    <div id="bookingsContainer">
+      <p>Loading your bookings...</p>
+    </div>
+
+    <!-- Booking Detail Popup Modal -->
+    <div id="bookingDetailModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Booking Details</h2>
+          <span id="closeModal" class="close">&times;</span>
+        </div>
+        <div id="bookingDetails"></div>
+        <h3>Provider Details</h3>
+        <div id="providerDetailsContainer">
+          <div id="providerDetails"></div>
+        </div>
+        <div class="button-container">
+          <button id="viewProfileBtn">View Provider Profile</button>
+          <button id="cancelBookingBtn">Cancel Booking</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cancel Confirmation Modal -->
+    <div id="cancelConfirmModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <h2>Confirm Cancellation</h2>
+        <p>Are you sure you want to cancel this booking?</p>
+        <div class="cancel-confirm-buttons">
+          <button id="confirmCancelBtn">Yes, Cancel</button>
+          <button id="cancelCancelBtn">No, Keep Booking</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="bookings.js"></script>
+</body>
+</html>

@@ -1,0 +1,580 @@
+:root {
+  --main-bg: #f9f5fa;
+  --plum: #431837;
+  --plum-light: #b07fa8;
+  --text-main: #3c1431;
+  --white: #ffffff;
+  --accent: #8ba286;
+}
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+/* Header Layout */
+.main-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: transparent;
+  color: white;
+  z-index: 1000;
+}
+
+
+.main-header a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+
+.main-header a.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+
+.logo-img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+
+/* Right navigation */
+.nav-right {
+  display: flex;
+  gap: 30px;
+}
+
+
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+
+.nav-right a:hover {
+  color: var(--accent);
+}
+
+
+/* Active link: underlined and bold */
+.nav-right a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+
+.nav-right a.active {
+  font-weight: bold;
+  color: #ffe8f9;
+}
+
+
+/* Left side logo */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* Notification Button Styles */
+#notificationBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  margin-left: 12px; /* space between text and badge */
+  margin-right: 12px;
+}
+
+#notificationBtn:hover {
+  color: var(--accent);
+}
+
+/* Notification Dropdown Styles */
+#notificationMenu {
+  display: none; /* Initially hidden */
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  width: 300px;
+  z-index: 1000;
+  top: 80%; /* Position below the button */
+  right: 110px; /* Align to the right of the button */
+  color: black; /* Font color black */
+
+}
+
+/* Notification List Styles */
+.notification-list {
+  list-style: none; /* Remove default list styling */
+  margin: 0;
+  padding: 0;
+  color: black; /* Font color black */
+}
+
+#notificationList li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: black;
+}
+
+.notification-list li:hover {
+  background-color: #f5f5f5; /* Light gray background on hover */
+}
+
+.notification-list li.unread {
+  font-weight: bold; /* Highlight unread notifications */
+}
+
+/* Notification Count Badge Styles */
+.notification-badge {
+  background-color: var(--plum-light); /* Change to appropriate purple */
+  color: white; /* White text color */
+  border-radius: 50%; /* Circular shape */
+  width: 20px; /* Fixed width for consistency */
+  height: 20px; /* Fixed height for circular shape */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  font-size: 0.9rem; /* Font size */
+  position: absolute; /* Position relative to the button */
+  right: -24px; /* Adjust position to be on the right side */
+  top:4px;
+  font-weight: bold; /* Bold text */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+
+
+  main {
+    flex-grow: 1;
+    max-width: 1100px;
+    width: 95%;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+
+  h1, h2 {
+    margin-bottom: 20px;
+  }
+
+
+  .filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f1e6f7;
+    border-left: 5px solid var(--plum);
+    border-radius: 6px;
+  }
+
+
+  label {
+    font-weight: 600;
+  }
+
+
+  input[type="text"], select {
+    padding: 8px 12px;
+    font-size: 1em;
+    border: 1px solid var(--plum-light);
+    border-radius: 4px;
+    min-width: 220px;
+    transition: border-color 0.3s;
+  }
+
+
+  input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--plum);
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+
+  /* Increase width of Action column to fit buttons side by side */
+  #providersTable th:nth-child(8),
+  #providersTable td:nth-child(8) {
+    width: 180px;
+    white-space: nowrap;
+  }
+
+
+  th {
+    background-color: var(--plum-light);
+    color: var(--white);
+    font-weight: bold;
+  }
+
+
+  tr:nth-child(even) {
+    background-color: #f8f3fc;
+  }
+
+
+  tr:hover {
+    background-color: #f2e9f5;
+  }
+
+
+  .profile-link {
+    color: var(--plum);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+
+  .profile-link:hover {
+    text-decoration: underline;
+  }
+
+
+  #message {
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--plum);
+    text-align: center;
+  }
+
+
+  @media (max-width: 768px) {
+    .filter-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+
+    input[type="text"], select {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+
+html {
+  scroll-behavior: smooth;
+}
+ 
+.hero-section {
+  background-image: url('/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px 80px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+
+    .hero-content h1 {
+      font-size: 5em;
+      margin: 0;
+      padding: 0;
+      line-height: 1.1; /* subtle breathing space */
+    }
+
+
+    .hero-content h2 {
+      font-size: 1.2em;
+      margin: 12px 0 0px;
+      padding: 0;
+      font-weight: 500; /* optional: lighter to contrast with h1 */
+    }
+
+
+    .hero-content p {
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+      color: #e0e0e0; /* subtle contrast */
+    }
+
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #b07fa8;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+
+    .cta-btn:hover {
+      background-color: #8ba286;
+    }
+
+
+    .filter-section {
+      margin: 20px 0;
+    }
+
+
+.location-input-wrapper {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+#userLocation {
+  padding: 12px 16px;
+  font-size: 16px;
+  width: 280px;
+  border: 2px solid var(--plum-light);
+  border-radius: 12px;
+  outline: none;
+  background-color: #fff;
+  color: var(--text-main);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#userLocation:focus {
+  border-color: var(--plum);
+  box-shadow: 0 0 8px rgba(176, 127, 168, 0.4);
+}
+
+
+#locateBtn {
+  padding: 12px 20px;
+  background-color: var(--plum);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+
+#locateBtn:hover {
+  background-color: var(--plum-light);
+}
+
+
+.how-it-works {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+
+.step {
+      flex: 1 1 250px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+
+    .trust-section {
+      background-color: #eef2f3;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+
+    .testimonials {
+      margin-top: 20px;
+      font-style: italic;
+      color: #555;
+    }
+
+
+    .site-footer {
+      background-color: #222;
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+
+
+    .site-footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+   
+    .site-footer a:hover {
+      color: white;
+    }
+
+
+    .footer {
+  background-color: var(--plum);
+  color: #ccc; /* light gray for contrast */
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 2rem 1rem;
+  line-height: 1.6;
+  border-top: 1px solid #444;
+}
+
+
+.footer a {
+  color: #a67fb0; /* a nice soft purple to match your theme */
+  text-decoration: none;
+}
+
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #d3b5e5;
+}
+
+
+.footer .credits {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.book-btn, .profile-link {
+  display: inline-flex; /* Keep this to align items within the button */
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--plum);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  min-width: 60px;
+  text-align: center;
+  gap: 4px; /* This gap is for spacing between icon and text inside the button */
+}
+
+/* Ensure the button container is set to flex */
+.button-container {
+  display: flex; /* Use flexbox for layout */
+  gap: 4px; /* Set the gap between buttons */
+}
+
+
+.book-btn:hover, .profile-link:hover {
+  background-color: var(--plum-light);
+  box-shadow: 0 4px 8px rgba(67, 24, 55, 0.4);
+  text-decoration: none;
+  color: #fff;
+}
+
+.book-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  color: #666;
+}
+
+
+
